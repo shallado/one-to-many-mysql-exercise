@@ -1,0 +1,14 @@
+{
+  "name": "one-to-many-mysql",
+  "version": "1.0.0",
+  "description": "Examples of one-to-many relationship in mysql",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "shallado",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
