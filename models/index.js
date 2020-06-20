@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const customer = require('./customer');
 const { host, user, password, database } = require("../config/db");
 
 const connection = mysql.createConnection({
@@ -41,3 +42,8 @@ connection.connect((err) => {
     });
   }
 });
+
+module.exports = {
+  sql: connection,
+  Customer: customer(connection)
+};
