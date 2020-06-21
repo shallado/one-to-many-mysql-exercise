@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const customer = require('./customer');
+const order = require('./order');
 const { host, user, password, database } = require("../config/db");
 
 const connection = mysql.createConnection({
@@ -45,5 +46,6 @@ connection.connect((err) => {
 
 module.exports = {
   sql: connection,
-  Customer: customer(connection)
+  Customer: customer(connection),
+  Order: order(connection)
 };

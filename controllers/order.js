@@ -51,3 +51,15 @@ exports.findAllOrders = (req, res) => {
     res.send(orders);
   })
 };
+
+exports.listAllOrderTotals = (req, res) => {
+  Order.prototype.listTotals((err, orderTotals) => {
+    if (err) {
+      res.status(500).send({
+        message: 'Unable to list out order totals'
+      })
+    }
+
+    res.send(orderTotals);
+  });
+}
