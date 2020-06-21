@@ -1,3 +1,4 @@
 node_modules
 config
-.prettierrc.js
+.prettierrc
+main.txt
