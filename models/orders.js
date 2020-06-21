@@ -23,6 +23,21 @@ const order = (sql) => {
     }
   };
 
+   // gives you orders that belong to specific customers
+   findAll(customer_id, cb) {
+     sql.query(
+       `Select * FROM customers JOIN orders ON customers.id = orders.customer_id WHERE customers.id  = ?`,
+       customer_id,
+       (err, data) => {
+         if (err) {
+           cb(err, null);
+         }
+
+         cb(null, data);
+       }
+     )
+   }
+
   return Order;
 };
 

@@ -28,3 +28,26 @@ exports.createOrder = (req, res) => {
       });
     });
 };
+
+exports.findAllOrders = (req, res) => {
+  const {
+    customerId
+  } = req.body;
+
+  Order.prototype.findAll(customerId, (error, orders) => {
+    if (error) {
+      res.status(500).send({
+        message: 'Error occurred while finding orders',
+        error
+      });
+    }
+
+    if (!orders) {
+      res.status(404).send({
+        message: 'Unable to find orders try again'
+      });
+    }
+
+    res.send(orders);
+  })
+};

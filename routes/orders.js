@@ -7,4 +7,6 @@ const orderRouter = (app) => {
   app.use('/api/orders', router);
 };
 
+router.get('/', order.findAllOrders);
+
 module.exports = orderRouter;
