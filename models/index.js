@@ -28,8 +28,8 @@ connection.connect((err) => {
                           order_date DATE,
                           amount DECIMAL(8, 2),
                           customer_id INT NOT NULL,
-                          FOREIGN KEY(customer_id) REFERENCES customers(id)
-                       )`
+                          FOREIGN KEY(customer_id) REFERENCES customers(id) ON DELETE CASCADE
+                       )`;
 
   const tables = [createCustomers, createOrders];
 

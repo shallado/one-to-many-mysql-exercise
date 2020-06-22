@@ -4,6 +4,8 @@ const customer = require('../controllers/customer');
 const customerRouter = (app) => {
   router.post('/', customer.createCustomer);
 
+  router.delete('/', customer.deleteCustomer);  
+
   app.use('/api/customers', router);
 };
 

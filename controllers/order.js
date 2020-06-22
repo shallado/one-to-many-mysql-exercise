@@ -14,7 +14,7 @@ exports.createOrder = (req, res) => {
       orderDate,
       customerId
     },
-    (err, orderData) => {
+    (error, orderData) => {
       if (error) {
         res.status(500).send({
           message: 'Unable to add customer',

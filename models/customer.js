@@ -14,10 +14,24 @@ const customer = (sql) => {
           if (err) {
             return cb(err, null);
           }
-          
-          cb(null, { 
-            message: `data was inserted with id: ${insertData.insertId}` 
+
+          cb(null, {
+            message: `data was inserted with id: ${insertData.insertId}`
           });
+        }
+      );
+    }
+
+    deleteOne(customerId, cb) {
+      sql.query(
+        `DELETE FROM customers WHERE id = ?`, 
+        customerId, 
+        (err, customer) => {
+          if (err) {
+            return cb(err, null)
+          }
+
+          cb(null, customer);
         }
       );
     }

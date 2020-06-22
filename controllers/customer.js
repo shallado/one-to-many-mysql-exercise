@@ -1,19 +1,36 @@
 const { Customer } = require('../models');
-const customer = require('../models/customer');
 
 exports.createCustomer = (req, res) => {
   const customerInfo = req.body;
 
-  Customer.prototype.create(customerInfo, (err, customerData) => {
-    if (err) {
+  Customer.prototype.create(customerInfo, (error, customerData) => {
+    if (error) {
       res.status(500).send({
         message: 'Unable to add customer',
-        err
+        error
       });
     }
 
     res.send({
       message: 'Successfully added customer',
+      customerData
+    });
+  });
+};
+
+exports.deleteCustomer = (req, res) => {
+  const { customerId } = req.body;
+
+  Customer.prototype.deleteOne(customerId, (error, customerData) => {
+    if (error) {
+      res.status(500).send({
+        message: 'Unable to delete customer',
+        error
+      })
+    }
+
+    res.send({
+      message: 'Successfully deleted customer',
       customerData
     });
   });
